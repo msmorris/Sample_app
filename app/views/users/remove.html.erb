@@ -1,0 +1,6 @@
+<%= flash[:notice] %>
+
+<%= form_for @user, :url => { :action => "removal" }, :html => { :multipart => :true, :method => 'put' } do |f| %>
+  <%= text_field_tag :reason %>
+  <%= f.submit "disable user"%>
+<% end %>
