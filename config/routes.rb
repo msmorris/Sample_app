@@ -17,4 +17,7 @@ SampleApp::Application.routes.draw do
 
   root :to => 'welcome#index'
 
+  get "/about", to: "static_pages#about", as: "about"
+  # as: "about" about_path
+
 end
