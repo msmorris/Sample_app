@@ -1,4 +1,6 @@
 SampleApp::Application.routes.draw do
+  get "users/new"
+
   resources :posts
 
   resources :users do
@@ -7,17 +9,16 @@ SampleApp::Application.routes.draw do
     resources :posts
   end
 
-  get "static_pages/home"
+  root to: "static_pages#home", as: "root"
 
-  get "static_pages/help"
+  match "/signup", to: 'users#new', as: "signup"
 
-  get "static_pages/about"
 
-  get "static_pages/contact"
+  match "/help", to: "static_pages#help", as: "help"
 
-  root :to => 'welcome#index'
+  match "/contact", to: "static_pages#contact", as: "contact"
 
-  get "/about", to: "static_pages#about", as: "about"
+  match "/about", to: "static_pages#about", as: "about"
   # as: "about" about_path
 
 end
