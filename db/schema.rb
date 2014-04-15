@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140221002030) do
+ActiveRecord::Schema.define(:version => 20140414230216) do
 
   create_table "posts", :force => true do |t|
     t.string   "subject"
@@ -30,6 +30,9 @@ ActiveRecord::Schema.define(:version => 20140221002030) do
     t.datetime "updated_at",      :null => false
     t.boolean  "disabled"
     t.string   "disabled_reason"
+    t.string   "password_digest"
   end
+
+  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
 
 end
