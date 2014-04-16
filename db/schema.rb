@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140414230216) do
+ActiveRecord::Schema.define(:version => 20140416181101) do
 
   create_table "posts", :force => true do |t|
     t.string   "subject"
@@ -31,8 +31,10 @@ ActiveRecord::Schema.define(:version => 20140414230216) do
     t.boolean  "disabled"
     t.string   "disabled_reason"
     t.string   "password_digest"
+    t.string   "remember_token"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+  add_index "users", ["remember_token"], :name => "index_users_on_remember_token"
 
 end

@@ -51,6 +51,15 @@ class UsersController < ApplicationController
     end
   end
 
+  def sign_in(user)
+    visit signin_path
+    fill_in "Email",      with: user.email
+    fill_in "Password",   with: user.password
+    click_button "Sign in"
+    #sign in when not using capybara as well
+    cookies[:remember_token] = user.remember_token
+  end
+
   # PUT /users/1
   # PUT /users/1.json
   def update
